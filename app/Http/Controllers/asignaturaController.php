@@ -60,11 +60,10 @@ class asignaturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($asignatura)
+    public function show(asignatura $asignatura)
     {
-        //$asignatura = asignatura::find();
-        //return view('asignaturas.show', compact('asignatura'))
-        //return view('asignaturas.show', compact('$asignatura'));
+
+        return view('asignaturas.show', compact('asignatura'));
     }
 
     /**
@@ -73,10 +72,11 @@ class asignaturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(asignatura $asignatura)
+    public function edit($asignatura)
     {
         //
-        //$asignatura = asignatura::find($asignatura);
+        $asignatura = asignatura::find($asignatura);
+        return view('asignaturas.edit', compact('asignatura'));
         //return view('asignatura.edit',compact('asignatura'));
     }
 
@@ -87,9 +87,13 @@ class asignaturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, asignatura $asignatura)
     {
         //
+        $asignatura->nombre=$request->nombre;
+        $asignatura->save();
+        return redirect()->route('asignatura.index');
+        
     }
 
     /**
