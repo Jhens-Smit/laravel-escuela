@@ -57,9 +57,10 @@ class profesorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(profesor $profesor)
     {
         //
+        return view('profesors.show', compact('profesor'));
     }
 
     /**
@@ -68,9 +69,11 @@ class profesorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($profesor)
     {
         //
+        $profesor = profesor::find($profesor);
+        return view('profesors.edit', compact('profesor'));
     }
 
     /**
@@ -80,9 +83,19 @@ class profesorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $profesor)
     {
         //
+        $profesor = profesor::find($profesor);
+        $profesor->nombre = $request->nombre;
+        $profesor->apellido = $request->apellido;
+        $profesor->direccion = $request->direccion;
+        $profesor->fecha_nacimiento = $request->fecha_nacimiento;
+        $profesor->nivel_academ = $request->nivel_academ;
+
+        $profesor->save();
+
+        return redirect()->route('profesor.index');
     }
 
     /**

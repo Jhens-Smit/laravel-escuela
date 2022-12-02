@@ -10,6 +10,7 @@ class inscripcion extends Model
     use HasFactory;
     public $timestamps = false;
     protected $primaryKey = 'id_inscripcion';
+    
     public function asignatura()
     {
         return $this->hasOne(asignatura::class);

@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class profesor extends Model
 {
     use HasFactory;
-
     public $timestamps = false;
     protected $primaryKey = 'id_profesor';
     public function inscripcion()

@@ -56,9 +56,10 @@ class inscripcionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(inscripcion $inscripcion)
     {
         //
+        return view('inscripcions.show', compact('inscripcion'));
     }
 
     /**
@@ -67,9 +68,11 @@ class inscripcionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($inscripcion)
     {
         //
+        $inscripcion = inscripcion::find($inscripcion);
+        return view('inscripcions.edit', compact('inscripcion'));
     }
 
     /**
@@ -79,9 +82,18 @@ class inscripcionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $inscripcion)
     {
         //
+        $inscripcion = inscripcion::find($inscripcion);
+        $inscripcion->fk_alumno = $request->fk_alumno;
+        $inscripcion->fk_profesor = $request->fk_profesor;
+        $inscripcion->fk_asignatura = $request->fk_asignatura ;
+        $inscripcion->fecha = $request->fecha;
+
+        $inscripcion->save();
+
+        return redirect()->route('inscripcion.index');
     }
 
     /**

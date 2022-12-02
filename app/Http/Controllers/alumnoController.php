@@ -56,9 +56,10 @@ class alumnoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(alumno $alumno)
     {
         //
+        return view('alumnos.show', compact('alumno'));
     }
 
     /**
@@ -67,9 +68,11 @@ class alumnoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($alumno)
     {
         //
+        $alumno = alumno::find($alumno);
+        return view('alumnos.edit', compact('alumno'));
     }
 
     /**
@@ -79,9 +82,17 @@ class alumnoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, alumno $alumno)
     {
         //
+        $alumno->nombre = $request->nombre;
+        $alumno->apellido = $request->apellido;
+        $alumno->direccion = $request->direccion;
+        $alumno->fecha_nacimiento = $request->fecha_nacimiento;
+
+        $alumno->save();
+
+        return redirect()->route('alumno.index');
     }
 
     /**
