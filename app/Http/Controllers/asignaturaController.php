@@ -40,6 +40,9 @@ class asignaturaController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            "nombre" => 'required|max:20',
+        ]);
         $asignatura = new asignatura();
         $asignatura->nombre = $request->nombre;
         $asignatura->save();
@@ -90,6 +93,9 @@ class asignaturaController extends Controller
     public function update(Request $request, asignatura $asignatura)
     {
         //
+        $request->validate([
+            "nombre" => 'required',
+        ]);
         $asignatura->nombre=$request->nombre;
         $asignatura->save();
         return redirect()->route('asignatura.index');

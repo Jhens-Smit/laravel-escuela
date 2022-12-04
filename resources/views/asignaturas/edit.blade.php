@@ -13,9 +13,12 @@
         @method('put')
         <label>
             Nombre:
-            <input type="text" name="nombre" value="{{$asignatura->nombre}}"> <br>
+            <input type="text" name="nombre" value="{{old('nombre',$asignatura->nombre)}}"> <br>
         </label>
-   
+        @error('nombre')
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
     <br>
     <button type="submit">Editar asignatura</button>
 </form>

@@ -12,9 +12,13 @@
         @csrf
         <label>
             Nombre:
-            <input type="text" name="nombre"> <br>
+            <input type="text" name="nombre" value="{{old('nombre')}}"> <br>
         </label>
-   
+        @error('nombre')
+            
+            <small>*{{$message}}</small>
+            <br>
+        @enderror
     <br>
     <button type="submit">Insertar nuevo formulario</button>
 </form>
