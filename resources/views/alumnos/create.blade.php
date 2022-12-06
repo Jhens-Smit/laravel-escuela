@@ -12,19 +12,32 @@
         @csrf
         <label>
             Nombre:
-            <input type="text" name="nombre"> <br> <br>
-        </label>
+            <input type="text" name="nombre" value="{{old('nombre')}}"><br>
+            @error("nombre")
+            <small>*{{$message}}</small>
+        @enderror
+        </label><br>
+        
         <label>
             Apellidos:
-            <input type="text" name="apellido"> <br><br>
-        </label>
+            <input type="text" name="apellido" value="{{old('apellido')}}"><br> 
+            @error("apellido")
+            <small>*{{$message}}</small>
+            @enderror
+        </label><br>
         <label>
             Dirección:
-            <input type="text" name="direccion"> <br><br>
-        </label>
+            <input type="text" name="direccion" value="{{old('direccion')}}"> <br>
+            @error("direccion")
+                <small>*{{$message}}</small>
+            @enderror
+        </label><br>
         <label>
             Fecha de Nacimiento:
-            <input type="date" name="fecha_nacimiento"> <br>
+            <input type="date" name="fecha_nacimiento" value="{{old('fecha_nacimiento')}}"> <br>
+            @error("fecha_nacimiento")
+                <small>*{{$message}}</small>
+            @enderror
         </label>
     <br>
     <button type="submit">Insertar nuevo alumno</button>

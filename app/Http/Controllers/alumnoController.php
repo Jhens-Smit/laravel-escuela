@@ -39,6 +39,12 @@ class alumnoController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            "nombre"=>'required',
+            "apellido"=>'required',
+            "direccion"=>'required',
+            "fecha_nacimiento"=>'required',
+        ]);
         $alumno = new alumno();
         $alumno->nombre = $request->nombre;
         $alumno->apellido = $request->apellido;
@@ -85,6 +91,12 @@ class alumnoController extends Controller
     public function update(Request $request, alumno $alumno)
     {
         //
+        $request->validate([
+            "nombre"=>'required',
+            "apellido"=>'required',
+            "direccion"=>'required',
+            "fecha_nacimiento"=>'required',
+        ]);
         $alumno->nombre = $request->nombre;
         $alumno->apellido = $request->apellido;
         $alumno->direccion = $request->direccion;

@@ -39,6 +39,12 @@ class inscripcionController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            "fk_alumno"=>'required',
+            "fk_profesor"=>'required',
+            "fk_asignatura"=>'required',
+            "fecha"=>'required',
+        ]);
         $inscripcion = new inscripcion();
         $inscripcion->fk_alumno = $request->fk_alumno;
         $inscripcion->fk_profesor = $request->fk_profesor;
@@ -85,6 +91,12 @@ class inscripcionController extends Controller
     public function update(Request $request, $inscripcion)
     {
         //
+        $request->validate([
+            "fk_alumno"=>'required',
+            "fk_profesor"=>'required',
+            "fk_asignatura"=>'required',
+            "fecha"=>'required',
+        ]);
         $inscripcion = inscripcion::find($inscripcion);
         $inscripcion->fk_alumno = $request->fk_alumno;
         $inscripcion->fk_profesor = $request->fk_profesor;

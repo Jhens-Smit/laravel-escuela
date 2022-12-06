@@ -39,6 +39,13 @@ class profesorController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            "nombre"=>'required',
+            "apellido"=>'required',
+            "direccion"=>'required',
+            "fecha_nacimiento"=>'required',
+            "nivel_academ"=>'required'
+        ]);
         $profesor = new profesor();
         $profesor->nombre = $request->nombre;
         $profesor->apellido = $request->apellido;
@@ -86,6 +93,13 @@ class profesorController extends Controller
     public function update(Request $request, $profesor)
     {
         //
+        $request->validate([
+            "nombre"=>'required',
+            "apellido"=>'required',
+            "direccion"=>'required',
+            "fecha_nacimiento"=>'required',
+            "nivel_academ"=>'required'
+        ]);
         $profesor = profesor::find($profesor);
         $profesor->nombre = $request->nombre;
         $profesor->apellido = $request->apellido;

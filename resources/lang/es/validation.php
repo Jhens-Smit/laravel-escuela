@@ -148,6 +148,9 @@ return [
 
     'attributes' => [
         //'name' => 'nombre'
+        'fk_alumno' => 'id_alumno',
+        'fk_profesor' => 'id_profesor',
+        'fk_asignatura' => 'id_asignatura',
     ],
 
 ];

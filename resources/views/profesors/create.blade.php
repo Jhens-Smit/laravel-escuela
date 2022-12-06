@@ -12,23 +12,38 @@
         @csrf
         <label>
             Nombre:
-            <input type="text" name="nombre"> <br> <br>
-        </label>
+            <input type="text" name="nombre" value="{{old('nombre')}}"> <br>
+            @error("nombre")
+                <small>*{{$message}}</small>
+            @enderror
+        </label><br>
         <label>
             Apellidos:
-            <input type="text" name="apellido"> <br><br>
-        </label>
+            <input type="text" name="apellido" value="{{old('apellido')}}"> <br>
+            @error("apellido")
+                <small>*{{$message}}</small>
+            @enderror
+        </label><br>
         <label>
             Dirección:
-            <input type="text" name="direccion"> <br><br>
-        </label>
+            <input type="text" name="direccion" value="{{old('direccion')}}"> <br>
+            @error("direccion")
+            <small>*{{$message}}</small>
+        @enderror
+        </label><br>
         <label>
             Fecha de Nacimiento:
-            <input type="date" name="fecha_nacimiento"> <br><br>
-        </label>
+            <input type="date" name="fecha_nacimiento" value="{{old('fecha_nacimiento')}}"> <br>
+            @error("fecha_nacimiento")
+            <small>*{{$message}}</small>
+        @enderror
+        </label><br>
         <label>
             Nivel academico:
-            <input type="text" name="nivel_academ"> <br><br>
+            <input type="text" name="nivel_academ" value="{{old('nivel_academ')}}"> <br>
+            @error("nivel_academ")
+            <small>*{{$message}}</small>
+        @enderror
         </label>
     <br>
     <button type="submit">Insertar nuevo Profesor</button>
