@@ -46,6 +46,7 @@ class profesorController extends Controller
             "fecha_nacimiento"=>'required',
             "nivel_academ"=>'required'
         ]);
+        //primera forma
         $profesor = new profesor();
         $profesor->nombre = $request->nombre;
         $profesor->apellido = $request->apellido;
@@ -54,7 +55,15 @@ class profesorController extends Controller
         $profesor->nivel_academ = $request->nivel_academ;
 
         $profesor->save();
-
+        //segunda forma
+        /* $profesor = profesor::created([
+            'nombre' => $request->nombre,
+            'apellido' => $request->apellido,
+            'direccion' => $request->direccion,
+            'fecha_nacimiento' => $request->fecha_nacimiento,
+            'nivel_academ' => $request->nivel_academ
+        ]); */
+       /*  $profesor = profesor::created($request->all()); //modelasignatura */
         return redirect()->route('profesor.index');
     }
 
@@ -118,8 +127,11 @@ class profesorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($profesor)
     {
         //
+        $profesor = profesor::find($profesor);
+        $profesor->delete();
+        return redirect()->route('profesor.index');
     }
 }

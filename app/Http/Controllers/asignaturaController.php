@@ -7,6 +7,7 @@ use App\Models\asignatura;
 use App\Models\inscripcion;
 use App\Models\profesor;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreAsignatura;
 
 class asignaturaController extends Controller
 {
@@ -37,12 +38,9 @@ class asignaturaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAsignatura $request)
     {
         //
-        $request->validate([
-            "nombre" => 'required|max:20',
-        ]);
         $asignatura = new asignatura();
         $asignatura->nombre = $request->nombre;
         $asignatura->save();
@@ -90,12 +88,9 @@ class asignaturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, asignatura $asignatura)
+    public function update(StoreAsignatura $request, asignatura $asignatura)
     {
         //
-        $request->validate([
-            "nombre" => 'required',
-        ]);
         $asignatura->nombre=$request->nombre;
         $asignatura->save();
         return redirect()->route('asignatura.index');
@@ -108,8 +103,10 @@ class asignaturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(asignatura $asignatura)
     {
         //
+        $asignatura->delete();
+        return redirect()->route('asignatura.index');
     }
 }
