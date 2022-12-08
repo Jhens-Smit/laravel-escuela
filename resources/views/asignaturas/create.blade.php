@@ -21,6 +21,7 @@
         @enderror
     <br>
     <button type="submit">Insertar nuevo formulario</button>
+    <a href="{{route('asignatura.index')}}">Volver</a>
 </form>
 </body>
 </html>

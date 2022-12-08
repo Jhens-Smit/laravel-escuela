@@ -41,6 +41,7 @@
         </label>
     <br>
     <button type="submit">Editar Inscripcion</button>
+    <a href="{{route('inscripcion.index')}}">Volver</a>
 </form>
 </body>
 </html>

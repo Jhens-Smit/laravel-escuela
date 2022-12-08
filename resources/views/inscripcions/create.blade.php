@@ -39,7 +39,8 @@
             @enderror
         </label>
     <br>
-    <button type="submit">Insertar nuevo alumno</button>
+    <button type="submit">Insertar nueva inscripción</button>
+    <a href="{{route('inscripcion.index')}}">Volver</a>
 </form>
 </body>
 </html>

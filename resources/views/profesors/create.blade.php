@@ -47,6 +47,7 @@
         </label>
     <br>
     <button type="submit">Insertar nuevo Profesor</button>
+    <a href="{{route('profesor.index')}}">Volver</a>
 </form>
 </body>
 </html>
