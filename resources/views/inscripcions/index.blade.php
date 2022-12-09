@@ -24,7 +24,11 @@
           </div>
         </div>
       </nav>
-      <h2>Lista de Inscripciones</h2>
+      <center>
+        <h2 style="color:rgb(6, 100, 107)">Lista de Inscripciones</h2>
+        <img src="https://cdn-icons-png.flaticon.com/512/5949/5949930.png" alt="" width="100 px" height="100 px">
+      </center>
+      
       <nav class="navbar navbar-light bg-light">
   
         <a class="navbar-brand" href="{{route('inscripcion.create')}}"> <center><b> Insertar Nueva Inscripción</b>

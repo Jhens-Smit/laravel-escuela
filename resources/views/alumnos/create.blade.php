@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <title>Document</title>
 </head>
-<body>
+<body> 
+    <center>
     <h1>Insertar una nuevo alumno</h1>
+    <img src="https://thumbs.dreamstime.com/b/nuevo-alumno-65505766.jpg" alt="">
     <form action="{{route('alumno.store')}}" method="POST">
         @csrf
         <label>
@@ -41,8 +43,9 @@
             @enderror
         </label>
     <br>
-    <button type="submit">Insertar nuevo alumno</button>    
+    <button type="submit">Insertar nuevo alumno</button>    <br> <br>
     <a href="{{route('alumno.index')}}">Volver</a>
+</center>
 </form>
 </body>
 </html>

@@ -1,0 +1,59 @@
+h1{
+    color: rgb(8, 73, 70);
+}
+label{
+    color: rgb(14, 86, 95);
+    font-weight: bold;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.image{
+    width: 450px;
+    height: 450px;
+}
+
+button{
+    color: #0099CC;
+    background: transparent;
+    border: 1px solid #0099CC;
+    border-radius: 6px;
+    border: none;
+      color: white;
+      padding: 8px 8px;
+      text-align: center;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      background-color: white; 
+      color: rgb(14, 86, 95); 
+      border: 2px solid #008CBA;
+      
+}
+button:hover{
+    background-color: #008CBA;
+      color: rgb(247, 241, 241);
+}
+a{
+    outline: none;
+    text-decoration: none;
+    padding: 2px 1px 0;
+}
+a:focus, a:hover {
+    border-bottom: 1px solid;
+  }
+a:link {
+    color: blue;
+  }
+a:visited {
+    color: #008CBA;
+  }
+  a:active {
+    color: rgb(17, 0, 255);
+  }

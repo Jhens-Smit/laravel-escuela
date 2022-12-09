@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
@@ -24,7 +25,11 @@
           </div>
         </div>
       </nav>
-    <h2>Lista de Alumnos</h2>
+    
+    <center>
+      <h2 style="color:rgb(6, 100, 107)">Lista de Alumnos</h2>
+      <img src="https://cdn-icons-png.flaticon.com/512/354/354637.png" alt="" width="100 px" height="100 px">
+    </center>
     <nav class="navbar navbar-light bg-light">
 
           <a class="navbar-brand" href="{{route('alumno.create')}}"> <center><b> Insertar Nuevo Alumno</b>
@@ -32,7 +37,7 @@
           </a>
         </center>
       </nav>
-    <div>
+    <div class="divc">
         <table class="table table-striped">
             <thead>
                 <th>ID:</th>
