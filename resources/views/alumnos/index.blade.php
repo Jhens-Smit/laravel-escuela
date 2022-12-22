@@ -11,6 +11,7 @@
     
     <title>alumnos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -34,6 +35,17 @@
       <h2 style="color:rgb(6, 100, 107)">Lista de Alumnos</h2>
       <img src="https://cdn-icons-png.flaticon.com/512/354/354637.png" alt="" width="100 px" height="100 px">
     </center>
+    <center><br>
+    <div class="container">
+      
+        <h5>Consultar DNI</h5>
+        <input type="text" id="documento">
+        <button class="btn btn-outline-danger btn-sm" id="buscar">Buscar</button><br> <br>
+        <input type="text" id="apellidoPaterno" placeholder="apellido paterno"> <br>
+        <input type="text" id="apellidoMaterno" placeholder="apellido materno"><br>
+        <input type="text" id="nombre" placeholder="nombres">
+    </div>   
+  </center>
     <nav class="navbar navbar-light bg-light">
 
           <a class="navbar-brand" href="{{route('alumno.create')}}"> <center><b> Insertar Nuevo Alumno</b>
@@ -81,7 +93,28 @@
             </tbody>
         </table>
     </div>
+    
 </body>
+<script>
+  $('#buscar').click(function(){
+      dni=$('#documento').val();
+      $.ajax({
+          url:'api.php',
+          type:'post',
+          data:'dni='+dni,
+          dataType:'json',
+          success:function(r){
+          if (r.numeroDocumento==dni){
+              $('#apellidoPaterno').val(r.apellidoPaterno);
+              $('#apellidoMaterno').val(r.apellidoMaterno);
+              $('#nombre').val(r.nombres);
+          }else{
+              alert(r.e);
+          }
+          }
+      })
+  })
+</script>
 </html>
 <?php
 /*{{route('asignatura.edit', ['asignatura' => $asignaturas->id_asignatura])}}*/
