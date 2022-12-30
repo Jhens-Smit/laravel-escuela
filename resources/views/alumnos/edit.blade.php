@@ -41,6 +41,13 @@
                 @error("fecha_nacimiento")
                     <small>*{{$message}}</small>
                 @enderror
+            </label><br>
+            <label>
+                Estado:
+                <input type="text" name="estado" value="{{old('estado', $alumno->estado)}}"> <br>
+                @error("estado")
+                    <small>*{{$message}}</small>
+                @enderror
             </label>
         <br>
         <button type="submit">Editar alumno</button><br><br>

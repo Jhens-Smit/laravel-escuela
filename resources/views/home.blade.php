@@ -21,8 +21,6 @@
 </head>
 
 <body>
-
-  
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
         <div class="container-fluid">
           <a class="navbar-brand" href="{{'/home'}}">Inicio</a>
@@ -47,7 +45,8 @@
           </div>
         </div>
       </nav>
-      
+      <h4>Hora en Tiempo Real:
+      <div id="horario"></div></h4>
       <center>
         
         <h1>Bienvenidos</h1>   
@@ -57,6 +56,28 @@
       </center>
 
 </body>
+<script>
+  function mostrarHora() {
+    // Obtener la hora actual
+    var ahora = new Date();
+
+    // Obtener horas, minutos y segundos
+    var horas = ahora.getHours();
+    var minutos = ahora.getMinutes();
+    var segundos = ahora.getSeconds();
+
+    // Agregar cero a la izquierda si es necesario
+    if (horas < 10) horas = "0" + horas;
+    if (minutos < 10) minutos = "0" + minutos;
+    if (segundos < 10) segundos = "0" + segundos;
+
+    // Mostrar la hora en el elemento con id "horario"
+    document.getElementById("horario").innerHTML = horas + ":" + minutos + ":" + segundos;
+  }
+
+  // Ejecutar la función "mostrarHora" cada 1 segundo
+  setInterval(mostrarHora, 1000);
+</script>
 </html>
 
 @endsection

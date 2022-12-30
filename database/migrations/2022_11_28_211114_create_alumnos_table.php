@@ -19,6 +19,7 @@ class CreateAlumnosTable extends Migration
             $table->string("apellido");
             $table->string("direccion");
             $table->dateTime("fecha_nacimiento");
+            $table->string("estado",1);
             $table->timestamps();
         });
     }

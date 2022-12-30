@@ -12,10 +12,11 @@ class alumnoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $alumno = alumno::all();
+        $buscarpor=$request->get('buscarpor');
+        $alumno = alumno::where('estado','=','1')->where('nombre','LIKE','%'.$buscarpor.'%')->get();
         return view('alumnos.index',compact('alumno'));
     }
 
@@ -44,12 +45,14 @@ class alumnoController extends Controller
             "apellido"=>'required',
             "direccion"=>'required',
             "fecha_nacimiento"=>'required',
+            "estado"=>'required'
         ]);
         $alumno = new alumno();
         $alumno->nombre = $request->nombre;
         $alumno->apellido = $request->apellido;
         $alumno->direccion = $request->direccion;
         $alumno->fecha_nacimiento = $request->fecha_nacimiento;
+        $alumno->estado = $request->estado;
 
         $alumno->save();
 
@@ -96,11 +99,13 @@ class alumnoController extends Controller
             "apellido"=>'required',
             "direccion"=>'required',
             "fecha_nacimiento"=>'required',
+            "estado"=>'required'
         ]);
         $alumno->nombre = $request->nombre;
         $alumno->apellido = $request->apellido;
         $alumno->direccion = $request->direccion;
         $alumno->fecha_nacimiento = $request->fecha_nacimiento;
+        $alumno->estado = $request->estado;
 
         $alumno->save();
 

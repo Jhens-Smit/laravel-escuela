@@ -20,6 +20,7 @@ class alumnoSeeder extends Seeder
         $alumno->apellido="Tazza Mucha";
         $alumno->direccion="Jr. Chupaca";
         $alumno->fecha_nacimiento="2022-11-28 23:57:19.000000";
+        $alumno->estado="1";
 
         $alumno->save();
     }

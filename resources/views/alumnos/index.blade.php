@@ -28,6 +28,10 @@
               <a class="nav-link" href="{{route('inscripcion.index')}}" tabindex="-1" aria-disabled="true">Inscripción</a>
             </div>
           </div>
+          <form class="d-flex">
+            <input name="buscarpor" class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
       </nav>
     
